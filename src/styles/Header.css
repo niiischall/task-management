@@ -5,7 +5,7 @@
     var(--color-blue-light)
   );
   padding: 1.6rem;
-  min-height: 8.5rem;
+  min-height: 12.5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,11 +15,9 @@
 .title {
   color: var(--color-white);
   font-family: "Poppins", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 500;
+  font-size: 1.5rem;
   line-height: 1.6rem;
   text-decoration: none;
-  margin-left: 1.5rem;
 }
 
 .project-container {
@@ -39,4 +37,8 @@
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.footer-name {
+  color: var(--color-white);
 }

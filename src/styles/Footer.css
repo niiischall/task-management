@@ -1,0 +1,18 @@
+.footer {
+  min-height: 25vh;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey-dark);
+}
+
+.footer h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+
+.footer-title {
+  color: var(--color-blue-light);
+}

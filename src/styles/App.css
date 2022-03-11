@@ -16,6 +16,9 @@
   --color-black: #000;
   --color-white: #fff;
 
+  --color-orange:#ff9900;
+  --color-green: #339966;
+
   --bp-desktop: 1200px;
   --bp-tablet: 900px;
   --bp-mobile: 400px;
