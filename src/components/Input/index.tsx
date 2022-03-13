@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Box, TextField, InputLabel } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+export interface Props {
+  handleSubmit: Function;
+}
+
 const useStyles = makeStyles((theme) => ({
   box: {
     display: "flex",
@@ -28,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Input: React.FC<{}> = () => {
+export const Input: React.FC<Props> = ({ handleSubmit }) => {
   const classes = useStyles();
 
   const [name, setName] = useState<string>("");
@@ -36,14 +40,14 @@ export const Input: React.FC<{}> = () => {
     setName(event.target.value);
   };
 
-  const handleSubmit = (event: any) => {
+  const handleFormSubmit = (event: any) => {
     event.preventDefault();
-    console.log(name);
+    handleSubmit(name)
     setName('');
   };
 
   return (
-    <Box component="form" className={classes.box} onSubmit={handleSubmit}>
+    <Box component="form" className={classes.box} onSubmit={handleFormSubmit}>
       <InputLabel id="labelId" className={classes.label}>
         Add Project
       </InputLabel>
