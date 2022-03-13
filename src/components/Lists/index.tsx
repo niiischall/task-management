@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { v4 as uuid } from "uuid";
 
 export interface Props {
   columns: {};
@@ -88,7 +87,6 @@ export const Lists: React.FC<Props> = ({ columns, handleMovement }) => {
     if (column.name === "Done") {
       return <span style={{ marginRight: "2.5px" }}>&#x2713;</span>;
     }
-    console.log(column);
     return null;
   };
 
