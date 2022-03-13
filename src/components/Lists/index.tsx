@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
 
 export interface Props {
@@ -84,6 +84,14 @@ export const Lists: React.FC<Props> = ({ columns, handleMovement }) => {
     return heading;
   };
 
+  const renderCompeleted = (column: any) => {
+    if (column.name === "Done") {
+      return <span style={{ marginRight: "2.5px" }}>&#x2713;</span>;
+    }
+    console.log(column);
+    return null;
+  };
+
   return (
     <div className="context-wrapper">
       <DragDropContext onDragEnd={(result: any) => onDragEnd(result, columns)}>
@@ -126,6 +134,7 @@ export const Lists: React.FC<Props> = ({ columns, handleMovement }) => {
                                       ...provided.draggableProps.style,
                                     }}
                                   >
+                                    {renderCompeleted(column)}
                                     {item.content}
                                   </div>
                                 );

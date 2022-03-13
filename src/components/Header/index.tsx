@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { TasksContext } from '../../App';
+import { TasksContext } from "../../App";
 
 export const Header: React.FC<{}> = () => {
-  const value = React.useContext(TasksContext);
-  
-  console.log(value);
+  const tasks = React.useContext(TasksContext);
+  const [numberOfProjects, setNumberOfProjects] = useState<number>(0);
+
+  useEffect(() => {
+    const taskColumns = Object.values(tasks);
+    if (taskColumns.length > 0) {
+      const sumWithInitial = taskColumns.reduce(
+        (previousValue, currentValue) => {
+          return previousValue + currentValue.items.length;
+        },
+        0
+      );
+      setNumberOfProjects(sumWithInitial);
+    }
+  }, [tasks]);
+
   return (
     <header className="header">
       <a href="/" className="title">
@@ -13,7 +26,8 @@ export const Header: React.FC<{}> = () => {
       </a>
       <div className="project-container">
         <p className="project-text">
-          4 <br /> Projects
+          {numberOfProjects} <br />
+          Projects
         </p>
       </div>
     </header>
